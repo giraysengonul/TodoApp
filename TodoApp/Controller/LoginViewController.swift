@@ -8,9 +8,9 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-     // MARK: - Properties
+    // MARK: - Properties
     private let logoImageView: UIImageView = {
-       let imageView =  UIImageView()
+        let imageView =  UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "checkmark.diamond")
@@ -18,65 +18,64 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     private lazy var emailContainerView: UIView = {
-       let containerView = UIView()
-        containerView.backgroundColor = .red
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(systemName: "envelope")
-        imageView.tintColor = .white
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(imageView)
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(emailTextField)
-        NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            imageView.heightAnchor.constraint(equalToConstant: 26),
-            imageView.widthAnchor.constraint(equalToConstant: 26),
-            
-            emailTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            emailTextField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
-            emailTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
-            containerView.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor)
-            
-        ])
+        let containerView = AuthenticationInputView(image: UIImage(systemName: "envelope")!, textField: emailTextField)
+        return containerView
+    }()
+    private lazy var passwordContainerView: UIView = {
+        let containerView = AuthenticationInputView(image: UIImage(systemName: "lock")!, textField: passwordTextField)
         return containerView
     }()
     private let emailTextField: UITextField = {
-       let textField = UITextField()
-        textField.placeholder = "Email"
-        textField.textColor = .white
+        let textField = CustomTextField(placeHolder: "Email")
         return textField
     }()
-     // MARK: - Lifecycle
+    private let passwordTextField: UITextField = {
+        let textField = CustomTextField(placeHolder: "Password")
+        return textField
+    }()
+    private let loginButton:UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        button.layer.cornerRadius = 7
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        return button
+    }()
+    private var stackView = UIStackView()
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         layout()
     }
 }
- // MARK: - Helpers
+// MARK: - Helpers
 extension LoginViewController{
     private func style(){
         backgroundGradientColor()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.layer.cornerRadius = 150 / 2
-        emailContainerView.translatesAutoresizingMaskIntoConstraints = false
+        stackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
+        stackView.axis = .vertical
+        stackView.spacing = 14
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
     }
     private func layout(){
         view.addSubview(logoImageView)
-        view.addSubview(emailContainerView)
+        view.addSubview(stackView)
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 150),
             logoImageView.heightAnchor.constraint(equalToConstant: 150),
             
-            emailContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8),
-            emailContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            view.trailingAnchor.constraint(equalTo: emailContainerView.trailingAnchor, constant: 8),
-            emailContainerView.heightAnchor.constraint(equalToConstant: 60)
+            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 32),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            view.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 32),
         ])
     }
 }

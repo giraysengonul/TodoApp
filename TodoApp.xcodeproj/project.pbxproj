@@ -12,6 +12,8 @@
 		C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D82D296010F500C3AF59 /* LoginViewController.swift */; };
 		C446D833296010F900C3AF59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C446D832296010F900C3AF59 /* Assets.xcassets */; };
 		C446D836296010F900C3AF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C446D834296010F900C3AF59 /* LaunchScreen.storyboard */; };
+		C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */; };
+		C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45317302961AE18000A1F45 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C446D832296010F900C3AF59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C446D835296010F900C3AF59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C446D837296010F900C3AF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
+		C45317302961AE18000A1F45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +85,37 @@
 		C446D828296010F500C3AF59 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
+				C453172D2961AD32000A1F45 /* Model */,
+				C453172C2961AD2D000A1F45 /* ViewModel */,
+				C453172B2961AD27000A1F45 /* View */,
 				C43079FD29616BF800A8CF57 /* Utils */,
 				C43079FC29616B8700A8CF57 /* Controller */,
 				C43079FB29616B7F00A8CF57 /* Files */,
 			);
 			path = TodoApp;
+			sourceTree = "<group>";
+		};
+		C453172B2961AD27000A1F45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */,
+				C45317302961AE18000A1F45 /* CustomTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C453172C2961AD2D000A1F45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C453172D2961AD32000A1F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +191,8 @@
 				C43079FF29616C0400A8CF57 /* Extension.swift in Sources */,
 				C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */,
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,
+				C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */,
+				C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
