@@ -14,6 +14,7 @@
 		C446D836296010F900C3AF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C446D834296010F900C3AF59 /* LaunchScreen.storyboard */; };
 		C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */; };
 		C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45317302961AE18000A1F45 /* CustomTextField.swift */; };
+		C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E5492961FBCD0093D838 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C446D837296010F900C3AF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		C45317302961AE18000A1F45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C475E5492961FBCD0093D838 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		C453172C2961AD2D000A1F45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C475E5492961FBCD0093D838 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			files = (
 				C43079FF29616C0400A8CF57 /* Extension.swift in Sources */,
 				C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */,
+				C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */,
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,
 				C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */,
 				C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */,
