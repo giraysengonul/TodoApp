@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C43079FF29616C0400A8CF57 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43079FE29616C0400A8CF57 /* Extension.swift */; };
 		C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D829296010F500C3AF59 /* AppDelegate.swift */; };
-		C446D82E296010F500C3AF59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D82D296010F500C3AF59 /* ViewController.swift */; };
+		C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D82D296010F500C3AF59 /* LoginViewController.swift */; };
 		C446D833296010F900C3AF59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C446D832296010F900C3AF59 /* Assets.xcassets */; };
 		C446D836296010F900C3AF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C446D834296010F900C3AF59 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C43079FE29616C0400A8CF57 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C446D826296010F500C3AF59 /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C446D829296010F500C3AF59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C446D82D296010F500C3AF59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C446D82D296010F500C3AF59 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C446D832296010F900C3AF59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C446D835296010F900C3AF59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C446D837296010F900C3AF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +35,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C43079FB29616B7F00A8CF57 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				C446D837296010F900C3AF59 /* Info.plist */,
+				C446D834296010F900C3AF59 /* LaunchScreen.storyboard */,
+				C446D832296010F900C3AF59 /* Assets.xcassets */,
+				C446D829296010F500C3AF59 /* AppDelegate.swift */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		C43079FC29616B8700A8CF57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C446D82D296010F500C3AF59 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C43079FD29616BF800A8CF57 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C43079FE29616C0400A8CF57 /* Extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C446D81D296010F500C3AF59 = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +81,9 @@
 		C446D828296010F500C3AF59 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
-				C446D829296010F500C3AF59 /* AppDelegate.swift */,
-				C446D82D296010F500C3AF59 /* ViewController.swift */,
-				C446D832296010F900C3AF59 /* Assets.xcassets */,
-				C446D834296010F900C3AF59 /* LaunchScreen.storyboard */,
-				C446D837296010F900C3AF59 /* Info.plist */,
+				C43079FD29616BF800A8CF57 /* Utils */,
+				C43079FC29616B8700A8CF57 /* Controller */,
+				C43079FB29616B7F00A8CF57 /* Files */,
 			);
 			path = TodoApp;
 			sourceTree = "<group>";
@@ -131,7 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C446D82E296010F500C3AF59 /* ViewController.swift in Sources */,
+				C43079FF29616C0400A8CF57 /* Extension.swift in Sources */,
+				C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */,
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
