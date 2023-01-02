@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
     }()
     private let passwordTextField: UITextField = {
         let textField = CustomTextField(placeHolder: "Password")
+        textField.isSecureTextEntry = true
         return textField
     }()
     private let loginButton:UIButton = {
@@ -46,10 +47,11 @@ class LoginViewController: UIViewController {
         return button
     }()
     private var stackView = UIStackView()
-    private let switchToRegistrationPage: UIButton = {
+    private lazy var switchToRegistrationPage: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Click To Become A Member", attributes: [.foregroundColor: UIColor.white, .font: UIFont.boldSystemFont(ofSize: 14)])
         button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleGoRegister), for: .touchUpInside)
         return button
     }()
     // MARK: - Lifecycle
@@ -61,6 +63,10 @@ class LoginViewController: UIViewController {
 }
 // MARK: - Selector
 extension LoginViewController{
+    @objc private func handleGoRegister(_ sender: UIButton){
+        let controller = RegisterViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     @objc private func handleTextField(_ sender: UITextField){
         if sender == emailTextField{
             viewModel.emailText = sender.text
