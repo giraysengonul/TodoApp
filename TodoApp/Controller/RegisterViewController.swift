@@ -7,7 +7,8 @@
 
 import UIKit
 class RegisterViewController: UIViewController {
-     // MARK: - Properties
+    // MARK: - Properties
+    private var viewModel = RegisterViewModel()
     private let cameraButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "camera.circle"), for: .normal)
@@ -69,21 +70,42 @@ class RegisterViewController: UIViewController {
         button.addTarget(self, action: #selector(handleGoLogin), for: .touchUpInside)
         return button
     }()
-     // MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         layout()
     }
 }
- // MARK: - Selectors
+// MARK: - Selectors
 extension RegisterViewController{
+    @objc private func handleTextField(_ sender: UITextField){
+        if sender == emailTextField{
+            viewModel.emailText = sender.text
+        }else if sender == passwordTextField{
+            viewModel.passwordText = sender.text
+        }else if sender == nameTextField{
+            viewModel.nameText = sender.text
+        }else{
+            viewModel.usernameText = sender.text
+        }
+        registerButtonStatus()
+    }
     @objc private func handleGoLogin(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
 }
- // MARK: - Helpers
+// MARK: - Helpers
 extension RegisterViewController{
+    private func registerButtonStatus(){
+        if viewModel.status{
+            registerButton.isEnabled = true
+            registerButton.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        }else{
+            registerButton.isEnabled = false
+            registerButton.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        }
+    }
     private func style(){
         backgroundGradientColor()
         self.navigationController?.navigationBar.isHidden = true
@@ -94,6 +116,10 @@ extension RegisterViewController{
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         switchToLoginPage.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
+        usernameTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
     }
     private func layout(){
         view.addSubview(cameraButton)
