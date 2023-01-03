@@ -21,6 +21,7 @@
 		C46FD18D2962A9F900FB8ABD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FD18C2962A9F900FB8ABD /* RegisterViewController.swift */; };
 		C46FD18F2962B91900FB8ABD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */; };
 		C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E5492961FBCD0093D838 /* LoginViewModel.swift */; };
+		C47969D82964535D00D9424A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47969D72964535D00D9424A /* AuthenticationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C46FD18C2962A9F900FB8ABD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C475E5492961FBCD0093D838 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C47969D72964535D00D9424A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		C446D828296010F500C3AF59 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
+				C47969D62964534700D9424A /* Service */,
 				C453172D2961AD32000A1F45 /* Model */,
 				C453172C2961AD2D000A1F45 /* ViewModel */,
 				C453172B2961AD27000A1F45 /* View */,
@@ -134,6 +137,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C47969D62964534700D9424A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C47969D72964535D00D9424A /* AuthenticationService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				C43079FF29616C0400A8CF57 /* Extension.swift in Sources */,
 				C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */,
 				C46FD18D2962A9F900FB8ABD /* RegisterViewController.swift in Sources */,
+				C47969D82964535D00D9424A /* AuthenticationService.swift in Sources */,
 				C46FD18F2962B91900FB8ABD /* RegisterViewModel.swift in Sources */,
 				C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */,
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,
