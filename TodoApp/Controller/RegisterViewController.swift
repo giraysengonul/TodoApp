@@ -121,6 +121,12 @@ extension RegisterViewController{
     @objc private func handleGoLogin(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
+    @objc private func handleKeyboardWillShow(){
+        self.view.frame.origin.y = -110
+    }
+    @objc private func handleKeyboardWillHide(){
+        self.view.frame.origin.y = 0
+    }
 }
 // MARK: - Helpers
 extension RegisterViewController{
@@ -134,6 +140,8 @@ extension RegisterViewController{
         }
     }
     private func style(){
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         backgroundGradientColor()
         self.navigationController?.navigationBar.isHidden = true
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
