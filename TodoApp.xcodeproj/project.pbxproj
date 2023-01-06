@@ -11,6 +11,7 @@
 		C40A4C012964319A008B5D14 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C40A4C002964319A008B5D14 /* FirebaseAuth */; };
 		C40A4C032964319A008B5D14 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C40A4C022964319A008B5D14 /* FirebaseFirestore */; };
 		C40A4C052964319A008B5D14 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C40A4C042964319A008B5D14 /* FirebaseStorage */; };
+		C41AB31E2967F66200C14157 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AB31D2967F66200C14157 /* MainViewController.swift */; };
 		C43079FF29616C0400A8CF57 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43079FE29616C0400A8CF57 /* Extension.swift */; };
 		C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D829296010F500C3AF59 /* AppDelegate.swift */; };
 		C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D82D296010F500C3AF59 /* LoginViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		C40A4BFD296430AA008B5D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C41AB31D2967F66200C14157 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C43079FE29616C0400A8CF57 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C446D826296010F500C3AF59 /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C446D829296010F500C3AF59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				C446D82D296010F500C3AF59 /* LoginViewController.swift */,
 				C46FD18C2962A9F900FB8ABD /* RegisterViewController.swift */,
+				C41AB31D2967F66200C14157 /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,
 				C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */,
 				C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */,
+				C41AB31E2967F66200C14157 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
