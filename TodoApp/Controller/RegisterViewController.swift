@@ -94,6 +94,7 @@ extension RegisterViewController{
                 print("Error: \(error.localizedDescription)")
                 return
             }
+            self.dismiss(animated: true)
         }
         
     }

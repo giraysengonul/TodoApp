@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
-    private let loginButton:UIButton = {
+    private lazy var loginButton:UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 7
         button.isEnabled = false
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.addTarget(self, action: #selector(handleLoginButton), for: .touchUpInside)
         return button
     }()
     private var stackView = UIStackView()
@@ -63,6 +64,18 @@ class LoginViewController: UIViewController {
 }
 // MARK: - Selector
 extension LoginViewController{
+    @objc private func handleLoginButton(_ sender: UIButton){
+        guard let emailText = emailTextField.text else { return }
+        guard let passwordText = passwordTextField.text else { return }
+        AuthenticationService.login(emailText: emailText, passwordText: passwordText) { result, error in
+            if let error = error{
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true)
+        }
+        
+    }
     @objc private func handleGoRegister(_ sender: UIButton){
         let controller = RegisterViewController()
         self.navigationController?.pushViewController(controller, animated: true)
