@@ -88,12 +88,15 @@ extension RegisterViewController{
         guard let nameText = nameTextField.text else{ return }
         guard let usernameText = usernameTextField.text else{ return }
         guard let profileImage = self.profileImage else{ return }
+        showHud(show: true)
         let user = AuthenticationRegisterUserModel(emailText: emailText, passwordText: passwordText, usernameText: usernameText, nameText: nameText, profileImage: profileImage)
         AuthenticationService.createUser(user: user) { error in
             if let error = error{
                 print("Error: \(error.localizedDescription)")
+                self.showHud(show: false)
                 return
             }
+            self.showHud(show: false)
             self.dismiss(animated: true)
         }
         

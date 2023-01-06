@@ -23,6 +23,7 @@
 		C46FD18F2962B91900FB8ABD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */; };
 		C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E5492961FBCD0093D838 /* LoginViewModel.swift */; };
 		C47969D82964535D00D9424A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47969D72964535D00D9424A /* AuthenticationService.swift */; };
+		C4A33A4B296850E200E39F62 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C4A33A4A296850E200E39F62 /* JGProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A33A4B296850E200E39F62 /* JGProgressHUD in Frameworks */,
 				C40A4C012964319A008B5D14 /* FirebaseAuth in Frameworks */,
 				C40A4C032964319A008B5D14 /* FirebaseFirestore in Frameworks */,
 				C40A4C052964319A008B5D14 /* FirebaseStorage in Frameworks */,
@@ -170,6 +172,7 @@
 				C40A4C002964319A008B5D14 /* FirebaseAuth */,
 				C40A4C022964319A008B5D14 /* FirebaseFirestore */,
 				C40A4C042964319A008B5D14 /* FirebaseStorage */,
+				C4A33A4A296850E200E39F62 /* JGProgressHUD */,
 			);
 			productName = TodoApp;
 			productReference = C446D826296010F500C3AF59 /* TodoApp.app */;
@@ -201,6 +204,7 @@
 			mainGroup = C446D81D296010F500C3AF59;
 			packageReferences = (
 				C40A4BFF2964319A008B5D14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C4A33A49296850E100E39F62 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = C446D827296010F500C3AF59 /* Products */;
 			projectDirPath = "";
@@ -456,6 +460,14 @@
 				kind = branch;
 			};
 		};
+		C4A33A49296850E100E39F62 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -473,6 +485,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C40A4BFF2964319A008B5D14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		C4A33A4A296850E200E39F62 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4A33A49296850E100E39F62 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

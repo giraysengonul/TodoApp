@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
     private func signOut(){
         do{
             try Auth.auth().signOut()
+            userStatus()
         }catch{
             
         }

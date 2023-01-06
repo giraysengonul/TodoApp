@@ -67,11 +67,14 @@ extension LoginViewController{
     @objc private func handleLoginButton(_ sender: UIButton){
         guard let emailText = emailTextField.text else { return }
         guard let passwordText = passwordTextField.text else { return }
+        showHud(show: true)
         AuthenticationService.login(emailText: emailText, passwordText: passwordText) { result, error in
             if let error = error{
                 print("Error: \(error.localizedDescription)")
+                self.showHud(show: false)
                 return
             }
+            self.showHud(show: false)
             self.dismiss(animated: true)
         }
         
