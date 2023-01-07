@@ -28,6 +28,7 @@ extension MainTabBarViewController{
                            configureViewController(rootViewController: tasksViewController, title: "Tasks", image: "checkmark.circle"),
                            configureViewController(rootViewController: profileViewController, title: "Profile", image: "person.circle")
         ]
+        configureTabBar()
     }
     private func userStatus(){
         if Auth.auth().currentUser?.uid == nil {
@@ -52,5 +53,16 @@ extension MainTabBarViewController{
         controller.tabBarItem.title = title
         controller.tabBarItem.image = UIImage(systemName: image)
         return controller
+    }
+    private func configureTabBar(){
+        let shape = CAShapeLayer()
+        let bezier = UIBezierPath(roundedRect: CGRect(x: 10, y: (self.tabBar.bounds.minY) - 14, width: (self.tabBar.bounds.width) - 20, height: (self.tabBar.bounds.height) + 28), cornerRadius: ( (self.tabBar.bounds.height) + 28) / 5)
+        shape.path = bezier.cgPath
+        shape.fillColor = UIColor.white.cgColor
+        self.tabBar.itemPositioning = .fill
+        self.tabBar.itemWidth = ((self.tabBar.bounds.width) - 20) / 5
+        self.tabBar.tintColor = UIColor.systemBlue.withAlphaComponent(0.7)
+        self.tabBar.unselectedItemTintColor = UIColor.lightGray
+        self.tabBar.layer.insertSublayer(shape, at: 0)
     }
 }
