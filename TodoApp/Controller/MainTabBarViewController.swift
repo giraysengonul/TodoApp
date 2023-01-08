@@ -56,7 +56,7 @@ extension MainTabBarViewController{
     }
     private func configureTabBar(){
         let shape = CAShapeLayer()
-        let bezier = UIBezierPath(roundedRect: CGRect(x: 10, y: (self.tabBar.bounds.minY) - 14, width: (self.tabBar.bounds.width) - 20, height: (self.tabBar.bounds.height) + 28), cornerRadius: ( (self.tabBar.bounds.height) + 28) / 5)
+        let bezier = UIBezierPath(roundedRect: CGRect(x: 10, y: (self.tabBar.bounds.minY) - 14, width: (self.tabBar.bounds.width) - 20, height: (self.tabBar.bounds.height) + 28), cornerRadius: ( (self.tabBar.bounds.height) + 28) / 3)
         shape.path = bezier.cgPath
         shape.fillColor = UIColor.white.cgColor
         self.tabBar.itemPositioning = .fill
@@ -64,5 +64,6 @@ extension MainTabBarViewController{
         self.tabBar.tintColor = UIColor.systemBlue.withAlphaComponent(0.7)
         self.tabBar.unselectedItemTintColor = UIColor.lightGray
         self.tabBar.layer.insertSublayer(shape, at: 0)
+        selectedIndex = 1
     }
 }
