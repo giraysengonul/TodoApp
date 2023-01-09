@@ -19,6 +19,7 @@
 		C446D836296010F900C3AF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C446D834296010F900C3AF59 /* LaunchScreen.storyboard */; };
 		C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */; };
 		C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45317302961AE18000A1F45 /* CustomTextField.swift */; };
+		C460FD47296BF21400F147B2 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460FD46296BF21400F147B2 /* NewTaskViewController.swift */; };
 		C46FD18D2962A9F900FB8ABD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FD18C2962A9F900FB8ABD /* RegisterViewController.swift */; };
 		C46FD18F2962B91900FB8ABD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */; };
 		C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E5492961FBCD0093D838 /* LoginViewModel.swift */; };
@@ -41,6 +42,7 @@
 		C446D837296010F900C3AF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		C45317302961AE18000A1F45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C460FD46296BF21400F147B2 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		C46FD18C2962A9F900FB8ABD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C475E5492961FBCD0093D838 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				C4E5B57929696DF300F7152C /* PastTaskViewController.swift */,
 				C4E5B57B29696E2E00F7152C /* TasksViewController.swift */,
 				C4E5B57D29696E4800F7152C /* ProfileViewContoller.swift */,
+				C460FD46296BF21400F147B2 /* NewTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				C4E5B57C29696E2E00F7152C /* TasksViewController.swift in Sources */,
 				C4E5B57E29696E4800F7152C /* ProfileViewContoller.swift in Sources */,
 				C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */,
+				C460FD47296BF21400F147B2 /* NewTaskViewController.swift in Sources */,
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,
 				C453172F2961AD58000A1F45 /* AuthenticationInputView.swift in Sources */,
 				C4E5B57A29696DF300F7152C /* PastTaskViewController.swift in Sources */,

@@ -9,12 +9,13 @@ import UIKit
 
 class TasksViewController: UIViewController {
     // MARK: - Properties
-    private let newTaskButton: UIButton = {
+    private lazy var newTaskButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus.diamond.fill"), for: .normal)
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
         button.tintColor = .white
+        button.addTarget(self, action: #selector(handleNewTaskButton), for: .touchUpInside)
         return button
     }()
     // MARK: - Lifecycle
@@ -22,6 +23,16 @@ class TasksViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+    }
+}
+ // MARK: - Selector
+extension TasksViewController{
+   @objc private func handleNewTaskButton(_ sender: UIButton){
+        let controller = NewTaskViewController()
+       if let sheet = controller.sheetPresentationController{
+           sheet.detents = [.medium()]
+       }
+       self.present(controller, animated: true)
     }
 }
 // MARK: - Helpers
