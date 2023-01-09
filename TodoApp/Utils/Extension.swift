@@ -28,3 +28,6 @@ extension UIViewController{
     }
     
 }
+extension UIColor{
+    static let mainColor = UIColor.systemBlue.withAlphaComponent(0.7)
+}
