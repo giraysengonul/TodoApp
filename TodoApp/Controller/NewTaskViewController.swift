@@ -19,22 +19,26 @@ class NewTaskViewController: UIViewController {
         inputTextView.placeHolder = "Enter New Task.."
         return inputTextView
     }()
-    private let cancelButton: UIButton = {
+    private lazy var cancelButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Cancel", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .systemRed
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
         button.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return button
     }()
-    private let addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Add", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .mainColor
         button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleAddButton), for: .touchUpInside)
         return button
     }()
     private var stackView = UIStackView()
@@ -43,6 +47,21 @@ class NewTaskViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+    }
+}
+ // MARK: - Selector
+extension NewTaskViewController{
+    @objc private func handleCancelButton(){
+        self.dismiss(animated: true)
+    }
+    @objc private func handleAddButton(){
+        guard let taskText = textView.text else{ return }
+        Service.sendTask(text: taskText) { error in
+            if let error = error{
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        self.dismiss(animated: true)
     }
 }
 // MARK: - Helpers
