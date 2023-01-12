@@ -68,7 +68,7 @@ extension TasksViewController{
         self.navigationController?.navigationBar.isHidden = true
         newTaskButton.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(TasksCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(TaskCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -105,7 +105,8 @@ extension TasksViewController: UICollectionViewDelegate ,UICollectionViewDataSou
         return tasks.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TasksCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TaskCell
+        cell.task = tasks[indexPath.row]
         return cell
     }
 }

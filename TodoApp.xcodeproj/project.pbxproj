@@ -28,7 +28,7 @@
 		C46FD18F2962B91900FB8ABD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */; };
 		C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E5492961FBCD0093D838 /* LoginViewModel.swift */; };
 		C47969D82964535D00D9424A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47969D72964535D00D9424A /* AuthenticationService.swift */; };
-		C498F8402970208500A53371 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498F83F2970208500A53371 /* TasksCell.swift */; };
+		C498F8402970208500A53371 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498F83F2970208500A53371 /* TaskCell.swift */; };
 		C4A33A4B296850E200E39F62 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C4A33A4A296850E200E39F62 /* JGProgressHUD */; };
 		C4DA9086296C1AEE00E55ED6 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA9085296C1AEE00E55ED6 /* InputTextView.swift */; };
 		C4E5B57A29696DF300F7152C /* PastTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5B57929696DF300F7152C /* PastTaskViewController.swift */; };
@@ -57,7 +57,7 @@
 		C46FD18E2962B91900FB8ABD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C475E5492961FBCD0093D838 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C47969D72964535D00D9424A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		C498F83F2970208500A53371 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
+		C498F83F2970208500A53371 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		C4DA9085296C1AEE00E55ED6 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		C4E5B57929696DF300F7152C /* PastTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastTaskViewController.swift; sourceTree = "<group>"; };
 		C4E5B57B29696E2E00F7152C /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			children = (
 				C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */,
 				C45317302961AE18000A1F45 /* CustomTextField.swift */,
-				C498F83F2970208500A53371 /* TasksCell.swift */,
+				C498F83F2970208500A53371 /* TaskCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 				C42D29FC2970B1B4005DB7D0 /* Task.swift in Sources */,
 				C4E5B57E29696E4800F7152C /* ProfileViewContoller.swift in Sources */,
 				C475E54A2961FBCD0093D838 /* LoginViewModel.swift in Sources */,
-				C498F8402970208500A53371 /* TasksCell.swift in Sources */,
+				C498F8402970208500A53371 /* TaskCell.swift in Sources */,
 				C45BE50F296D369800463414 /* Service.swift in Sources */,
 				C460FD47296BF21400F147B2 /* NewTaskViewController.swift in Sources */,
 				C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */,

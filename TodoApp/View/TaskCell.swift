@@ -7,8 +7,11 @@
 
 import UIKit
 
-class TasksCell: UICollectionViewCell {
+class TaskCell: UICollectionViewCell {
     // MARK: - Properties
+    var task: Task?{
+        didSet{ configure() }
+    }
     private lazy var circleButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "circle"), for: .normal)
@@ -19,7 +22,6 @@ class TasksCell: UICollectionViewCell {
     private let taskLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.text = "Meyve Al."
         return label
     }()
     // MARK: - Lifecycle
@@ -34,7 +36,7 @@ class TasksCell: UICollectionViewCell {
     }
 }
 // MARK: - Selector
-extension TasksCell{
+extension TaskCell{
     @objc private func handleCircleButton(_ sender: UIButton){
         UIView.animate(withDuration: 0.5, delay: 0) {
             self.circleButton.alpha = 0
@@ -48,7 +50,7 @@ extension TasksCell{
     }
 }
 // MARK: - Helpers
-extension TasksCell{
+extension TaskCell{
     private func style(){
         backgroundColor = .white
         layer.cornerRadius = 5
@@ -72,5 +74,9 @@ extension TasksCell{
             trailingAnchor.constraint(equalTo: taskLabel.trailingAnchor,constant: 8),
             bottomAnchor.constraint(equalTo: taskLabel.bottomAnchor, constant: 8)
         ])
+    }
+    private func configure(){
+        guard let task = self.task else { return }
+        taskLabel.text = task.text
     }
 }
