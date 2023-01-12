@@ -18,8 +18,18 @@ class MainTabBarViewController: UITabBarController {
         view.backgroundColor = .red
         userStatus()
         style()
+        fetchUser()
     }
     
+}
+ // MARK: - Selector
+extension MainTabBarViewController{
+    private func fetchUser(){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Service.fetchUser(uid: uid) { user in
+            self.tasksViewController.user = user
+        }
+    }
 }
 // MARK: - Helpers
 extension MainTabBarViewController{

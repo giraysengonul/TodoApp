@@ -10,7 +10,7 @@ import FirebaseAuth
 private let reuseIdentifier = "TasksCell"
 class TasksViewController: UIViewController {
     // MARK: - Properties
-    private var user: User?{
+     var user: User?{
         didSet{ configure() }
     }
     private var tasks = [Task]()
@@ -39,22 +39,15 @@ class TasksViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
-        fetchUser()
-        fetchTasks()
     }
 }
  // MARK: - Service
 extension TasksViewController{
     private func fetchTasks(){
-        Service.fetchTasks { tasks in
+        guard let uid = self.user?.uid else { return }
+        Service.fetchTasks(uid: uid) { tasks in
             self.tasks = tasks
             self.collectionView.reloadData()
-        }
-    }
-    private func fetchUser(){
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        Service.fetchUser(uid: uid) { user in
-            self.user = user
         }
     }
 }
@@ -103,6 +96,7 @@ extension TasksViewController{
     private func configure(){
         guard let user = self.user else { return }
         nameLabel.text = "Hi \(user.name) 👋🏻"
+        fetchTasks()
     }
 }
 // MARK: - UICollectionViewDelegate ,UICollectionViewDataSource
