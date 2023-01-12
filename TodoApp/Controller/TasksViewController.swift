@@ -13,6 +13,7 @@ class TasksViewController: UIViewController {
     private var user: User?{
         didSet{ configure() }
     }
+    private var tasks = [Task]()
     private lazy var newTaskButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus.diamond.fill"), for: .normal)
@@ -30,6 +31,7 @@ class TasksViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.textColor = .white
+        label.text = " "
         return label
     }()
     // MARK: - Lifecycle
@@ -38,10 +40,17 @@ class TasksViewController: UIViewController {
         style()
         layout()
         fetchUser()
+        fetchTasks()
     }
 }
  // MARK: - Service
 extension TasksViewController{
+    private func fetchTasks(){
+        Service.fetchTasks { tasks in
+            self.tasks = tasks
+            self.collectionView.reloadData()
+        }
+    }
     private func fetchUser(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Service.fetchUser(uid: uid) { user in
@@ -99,7 +108,7 @@ extension TasksViewController{
 // MARK: - UICollectionViewDelegate ,UICollectionViewDataSource
 extension TasksViewController: UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return tasks.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TasksCell
