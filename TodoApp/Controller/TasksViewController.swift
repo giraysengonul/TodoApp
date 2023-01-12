@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 private let reuseIdentifier = "TasksCell"
 class TasksViewController: UIViewController {
     // MARK: - Properties
+    private var user: User?{
+        didSet{ configure() }
+    }
     private lazy var newTaskButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus.diamond.fill"), for: .normal)
@@ -24,7 +28,6 @@ class TasksViewController: UIViewController {
     }()
     private let nameLabel:UILabel = {
         let label = UILabel()
-        label.text = "Hi Ahmet 👋🏻"
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.textColor = .white
         return label
@@ -34,6 +37,16 @@ class TasksViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+        fetchUser()
+    }
+}
+ // MARK: - Service
+extension TasksViewController{
+    private func fetchUser(){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Service.fetchUser(uid: uid) { user in
+            self.user = user
+        }
     }
 }
 // MARK: - Selector
@@ -77,6 +90,10 @@ extension TasksViewController{
             view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 14)
         ])
+    }
+    private func configure(){
+        guard let user = self.user else { return }
+        nameLabel.text = "Hi \(user.name) 👋🏻"
     }
 }
 // MARK: - UICollectionViewDelegate ,UICollectionViewDataSource
