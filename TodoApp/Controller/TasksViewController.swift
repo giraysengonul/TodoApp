@@ -10,7 +10,7 @@ import FirebaseAuth
 private let reuseIdentifier = "TasksCell"
 class TasksViewController: UIViewController {
     // MARK: - Properties
-     var user: User?{
+    var user: User?{
         didSet{ configure() }
     }
     private var tasks = [Task]()
@@ -41,7 +41,7 @@ class TasksViewController: UIViewController {
         layout()
     }
 }
- // MARK: - Service
+// MARK: - Service
 extension TasksViewController{
     private func fetchTasks(){
         guard let uid = self.user?.uid else { return }
@@ -113,7 +113,11 @@ extension TasksViewController: UICollectionViewDelegate ,UICollectionViewDataSou
 extension TasksViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width * 0.9, height: 50)
+        let cell = TaskCell(frame: .init(x: 0, y: 0, width: view.frame.width * 0.9, height: 50))
+        cell.task = tasks[indexPath.row]
+        cell.layoutIfNeeded()
+        let copySize = cell.systemLayoutSizeFitting(.init(width: view.frame.width * 0.9, height: 1000))
+        return .init(width: view.frame.width * 0.9, height: copySize.height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: 10, height: 10)

@@ -22,6 +22,7 @@ class TaskCell: UICollectionViewCell {
     private let taskLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.numberOfLines = 0
         return label
     }()
     // MARK: - Lifecycle
