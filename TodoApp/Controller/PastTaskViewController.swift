@@ -27,7 +27,7 @@ extension PastTaskViewController{
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(PastTaskCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .clear
     }
     private func layout(){
@@ -46,8 +46,19 @@ extension PastTaskViewController: UICollectionViewDelegate, UICollectionViewData
         return 5
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .systemBlue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PastTaskCell
+       
         return cell
+    }
+}
+ // MARK: - UICollectionViewDelegateFlowLayout
+extension PastTaskViewController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       
+        return .init(width: view.frame.width * 0.9, height: 50)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: 10, height: 10)
     }
 }

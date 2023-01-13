@@ -15,6 +15,7 @@
 		C42D29FC2970B1B4005DB7D0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D29FB2970B1B4005DB7D0 /* Task.swift */; };
 		C42D29FE2970B268005DB7D0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D29FD2970B268005DB7D0 /* Constant.swift */; };
 		C43079FF29616C0400A8CF57 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43079FE29616C0400A8CF57 /* Extension.swift */; };
+		C43907382971C00500742672 /* PastTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43907372971C00500742672 /* PastTaskCell.swift */; };
 		C43B7284297046D900E9748A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43B7283297046D900E9748A /* User.swift */; };
 		C446D82A296010F500C3AF59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D829296010F500C3AF59 /* AppDelegate.swift */; };
 		C446D82E296010F500C3AF59 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446D82D296010F500C3AF59 /* LoginViewController.swift */; };
@@ -42,6 +43,7 @@
 		C42D29FB2970B1B4005DB7D0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C42D29FD2970B268005DB7D0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C43079FE29616C0400A8CF57 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C43907372971C00500742672 /* PastTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastTaskCell.swift; sourceTree = "<group>"; };
 		C43B7283297046D900E9748A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C446D826296010F500C3AF59 /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C446D829296010F500C3AF59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				C453172E2961AD58000A1F45 /* AuthenticationInputView.swift */,
 				C45317302961AE18000A1F45 /* CustomTextField.swift */,
 				C498F83F2970208500A53371 /* TaskCell.swift */,
+				C43907372971C00500742672 /* PastTaskCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				C4E5B57A29696DF300F7152C /* PastTaskViewController.swift in Sources */,
 				C45317312961AE18000A1F45 /* CustomTextField.swift in Sources */,
 				C41AB31E2967F66200C14157 /* MainTabBarViewController.swift in Sources */,
+				C43907382971C00500742672 /* PastTaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
