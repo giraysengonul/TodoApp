@@ -107,6 +107,8 @@ extension TasksViewController: UICollectionViewDelegate ,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TaskCell
         cell.task = tasks[indexPath.row]
+        cell.index = indexPath.row
+        cell.delegate = self
         return cell
     }
 }
@@ -122,4 +124,12 @@ extension TasksViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: 10, height: 10)
     }
+}
+// MARK: - TaskCellProtocol
+extension TasksViewController: TaskCellProtocol{
+    func deleteTask(sender: TaskCell, index: Int) {
+        self.tasks.remove(at: index)
+        self.collectionView.reloadData()
+    }
+    
 }

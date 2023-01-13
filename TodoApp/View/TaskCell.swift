@@ -6,12 +6,16 @@
 //
 
 import UIKit
-
+protocol TaskCellProtocol: AnyObject {
+    func deleteTask(sender: TaskCell,index: Int)
+}
 class TaskCell: UICollectionViewCell {
     // MARK: - Properties
+    var index: Int?
     var task: Task?{
         didSet{ configure() }
     }
+    weak var delegate: TaskCellProtocol?
     private lazy var circleButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "circle"), for: .normal)
@@ -45,7 +49,13 @@ extension TaskCell{
             UIView.animate(withDuration: 0.5, delay: 0) {
                 self.circleButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
                 self.circleButton.alpha = 1
+            } completion: { _ in
+                guard let task = self.task else { return }
+                guard let index = self.index else{ return }
+                Service.deleteTask(task: task)
+                self.delegate?.deleteTask(sender: self, index: index)
             }
+            
         }
         
     }
