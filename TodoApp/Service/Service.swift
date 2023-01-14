@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 struct Service {
     static private var pastTasks = [Task]()
+    static private var tasks = [Task]()
     static func sendTask(text: String, completion: @escaping(Error?)-> Void){
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         let taskId = NSUUID().uuidString
@@ -49,15 +50,16 @@ struct Service {
     }
     static func fetchTasks(uid: String ,completion: @escaping([Task])->Void){
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        var tasks = [Task]()
+        
         COLLECTION_TASKS.document(uid).collection("ongoing_tasks").order(by: "timestamp").addSnapshotListener { snaphot, error in
-            snaphot?.documentChanges.forEach({ value in
-                if value.type == .added{
-                    let data = value.document.data()
+            tasks = []
+            if let documents = snaphot?.documents{
+                for doc in documents{
+                    let data = doc.data()
                     tasks.append(Task(data: data))
                     completion(tasks)
                 }
-            })
+            }
         }
     }
     static func fetchPastTasks(uid: String ,completion: @escaping([Task])->Void){

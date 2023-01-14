@@ -32,12 +32,15 @@ class TaskCell: UICollectionViewCell {
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        style()
-        layout()
+        reload()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+     func reload(){
+        style()
+        layout()
     }
 }
 // MARK: - Selector
@@ -63,6 +66,7 @@ extension TaskCell{
 // MARK: - Helpers
 extension TaskCell{
     private func style(){
+        circleButton.setImage(UIImage(systemName: "circle"), for: .normal)
         backgroundColor = .white
         layer.cornerRadius = 5
         layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor

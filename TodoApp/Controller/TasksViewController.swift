@@ -128,6 +128,7 @@ extension TasksViewController: UICollectionViewDelegateFlowLayout{
 // MARK: - TaskCellProtocol
 extension TasksViewController: TaskCellProtocol{
     func deleteTask(sender: TaskCell, index: Int) {
+        sender.reload()
         self.tasks.remove(at: index)
         self.collectionView.reloadData()
     }

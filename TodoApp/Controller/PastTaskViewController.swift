@@ -73,8 +73,11 @@ extension PastTaskViewController: UICollectionViewDelegate, UICollectionViewData
 extension PastTaskViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
-        return .init(width: view.frame.width * 0.9, height: 50)
+        let cell = PastTaskCell(frame: .init(x: 0, y: 0, width: view.frame.width * 0.9, height: 50))
+        cell.task = pastTasks![indexPath.row]
+        cell.layoutIfNeeded()
+        let copySize = cell.systemLayoutSizeFitting(.init(width: view.frame.width * 0.9, height: 1000))
+        return .init(width: view.frame.width * 0.9, height: copySize.height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: 10, height: 10)
