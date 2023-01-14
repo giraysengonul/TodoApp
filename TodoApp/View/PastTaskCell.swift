@@ -8,6 +8,9 @@
 import UIKit
 class PastTaskCell: UICollectionViewCell {
     // MARK: - Properties
+    var task: Task?{
+        didSet{ configure() }
+    }
     private lazy var circleButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
@@ -18,7 +21,6 @@ class PastTaskCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.numberOfLines = 0
-        label.text = "PastTaskCell"
         label.textColor = .lightGray
         return label
     }()
@@ -58,5 +60,9 @@ extension PastTaskCell{
             trailingAnchor.constraint(equalTo: taskLabel.trailingAnchor,constant: 8),
             bottomAnchor.constraint(equalTo: taskLabel.bottomAnchor, constant: 8)
         ])
+    }
+    private func configure(){
+        guard let task = self.task else { return }
+        taskLabel.text = task.text
     }
 }

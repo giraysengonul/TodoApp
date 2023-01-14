@@ -9,6 +9,12 @@ import UIKit
 private let reuseIdentifier = "PastTaskCell"
 class PastTaskViewController: UIViewController {
     // MARK: - Properties
+    var user: User?{
+        didSet{ configureUser() }
+    }
+    private var pastTasks: [Task]?{
+        didSet{ self.collectionView.reloadData() }
+    }
     private let collectionView:UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         return collectionView
@@ -18,6 +24,14 @@ class PastTaskViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+    }
+}
+ // MARK: - Service
+extension PastTaskViewController{
+    private func fetchTasks(uid: String){
+        Service.fetchPastTasks(uid: uid) { tasks in
+            self.pastTasks = tasks
+        }
     }
 }
 // MARK: - Helpers
@@ -39,15 +53,19 @@ extension PastTaskViewController{
             view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 14)
         ])
     }
+    private func configureUser(){
+        guard let user = self.user else { return }
+        fetchTasks(uid: user.uid)
+    }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension PastTaskViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.pastTasks?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PastTaskCell
-       
+        cell.task = self.pastTasks?[indexPath.row]
         return cell
     }
 }
