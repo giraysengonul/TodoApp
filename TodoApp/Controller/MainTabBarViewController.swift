@@ -17,6 +17,9 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .red
         userStatus()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         style()
         fetchUser()
     }
@@ -44,9 +47,11 @@ extension MainTabBarViewController{
     }
     private func userStatus(){
         if Auth.auth().currentUser?.uid == nil {
-            let controller = UINavigationController(rootViewController: LoginViewController())
-            controller.modalPresentationStyle = .fullScreen
-            self.present(controller, animated: true)
+            DispatchQueue.main.async {
+                let controller = UINavigationController(rootViewController: LoginViewController())
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true)
+            }
         }else{
             print("Kullanıcı Var")
         }
