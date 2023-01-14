@@ -29,6 +29,7 @@ extension MainTabBarViewController{
         Service.fetchUser(uid: uid) { user in
             self.tasksViewController.user = user
             self.pastTaskViewController.user = user
+            self.profileViewController.user = user
         }
     }
 }
