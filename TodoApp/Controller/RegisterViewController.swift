@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 class RegisterViewController: UIViewController {
     // MARK: - Properties
     private var profileImage: UIImage?
@@ -73,6 +74,13 @@ class RegisterViewController: UIViewController {
         button.addTarget(self, action: #selector(handleGoLogin), for: .touchUpInside)
         return button
     }()
+    private lazy var policyLinkButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Click for privacy policye", attributes: [.foregroundColor: UIColor.white, .font: UIFont.boldSystemFont(ofSize: 14)])
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handlePolicy), for: .touchUpInside)
+        return button
+    }()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,9 +110,29 @@ extension RegisterViewController{
         
     }
     @objc private func handlePhoto(_ sender: UIButton){
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        self.present(picker, animated: true)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            PHPhotoLibrary.requestAuthorization { status in
+                switch status {
+                case .notDetermined:
+                    break
+                case .restricted:
+                    break
+                case .denied:
+                    break
+                case .authorized:
+                    DispatchQueue.main.async {
+                        let picker = UIImagePickerController()
+                        picker.delegate = self
+                        self.present(picker, animated: true)
+                    }
+                case .limited:
+                    break
+                @unknown default:
+                    break
+                }
+               
+            }
+        }
     }
     @objc private func handleTextField(_ sender: UITextField){
         if sender == emailTextField{
@@ -120,6 +148,11 @@ extension RegisterViewController{
     }
     @objc private func handleGoLogin(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
+    }
+    @objc private func handlePolicy(_ sender: UIButton){
+        if let url = URL(string: "https://raw.githubusercontent.com/hakkicansengonul/hakkicansengonul.github.io/main/EasyTo-DoAppPrivacyPolicy") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
     }
     @objc private func handleKeyboardWillShow(){
         self.view.frame.origin.y = -110
@@ -155,11 +188,13 @@ extension RegisterViewController{
         passwordTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
         nameTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(handleTextField), for: .editingChanged)
+        policyLinkButton.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
         view.addSubview(cameraButton)
         view.addSubview(stackView)
         view.addSubview(switchToLoginPage)
+        view.addSubview(policyLinkButton)
         NSLayoutConstraint.activate([
             cameraButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -170,9 +205,13 @@ extension RegisterViewController{
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             view.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 32),
             
-            switchToLoginPage.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
+            switchToLoginPage.topAnchor.constraint(equalTo: policyLinkButton.bottomAnchor, constant: 8),
             switchToLoginPage.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 32),
-            view.trailingAnchor.constraint(equalTo: switchToLoginPage.trailingAnchor, constant: 32)
+            view.trailingAnchor.constraint(equalTo: switchToLoginPage.trailingAnchor, constant: 32),
+            
+            policyLinkButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 4),
+            policyLinkButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            policyLinkButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
         ])
     }
 }

@@ -48,6 +48,14 @@ class ProfileViewController: UIViewController {
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return button
     }()
+    private lazy var deleteTheAccount: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Delete the account", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleDeleteTheAccount), for: .touchUpInside)
+        return button
+    }()
     private var stackView = UIStackView()
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -58,17 +66,30 @@ class ProfileViewController: UIViewController {
 }
  // MARK: - Selector
 extension ProfileViewController{
-   @objc private func handleSignOutButton(){
+    @objc private func handleDeleteTheAccount(){
         do{
-            try Auth.auth().signOut()
+            AuthenticationService.deleteUser()
             DispatchQueue.main.async {
                 let controller = UINavigationController(rootViewController: LoginViewController())
                 controller.modalPresentationStyle = .fullScreen
                 self.present(controller, animated: true)
             }
-        }catch{
-            
+        }catch let error{
+            print(error.localizedDescription)
         }
+     }
+
+   @objc private func handleSignOutButton(){
+       do{
+           try Auth.auth().signOut()
+           DispatchQueue.main.async {
+               let controller = UINavigationController(rootViewController: LoginViewController())
+               controller.modalPresentationStyle = .fullScreen
+               self.present(controller, animated: true)
+           }
+       }catch{
+           
+       }
         
     }
 }
@@ -86,12 +107,13 @@ extension ProfileViewController{
         stackView.axis = .vertical
         stackView.spacing = 6
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
+        deleteTheAccount.translatesAutoresizingMaskIntoConstraints = false
         
     }
     private func layout(){
         view.addSubview(profileImageView)
         view.addSubview(stackView)
+        view.addSubview(deleteTheAccount)
         NSLayoutConstraint.activate([
             profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             profileImageView.heightAnchor.constraint(equalToConstant: 160),
@@ -102,6 +124,10 @@ extension ProfileViewController{
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             view.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 32),
             
+            deleteTheAccount.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
+            deleteTheAccount.heightAnchor.constraint(equalToConstant: 20),
+            deleteTheAccount.widthAnchor.constraint(equalToConstant: 200),
+            deleteTheAccount.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     private func attributedTitle(title: String, info:String)-> NSMutableAttributedString{

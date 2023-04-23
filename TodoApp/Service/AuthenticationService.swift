@@ -53,6 +53,24 @@ struct AuthenticationService {
         }
         
     }
-    
+    static func deleteUser(){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        COLLECTION_USERS.document(uid).delete { error in
+            if let error = error{
+                print(error.localizedDescription)
+                return
+            }
+            COLLECTION_TASKS.document(uid).delete { error in
+                if let error = error{
+                    print(error.localizedDescription)
+                    return
+                }
+                if let user =  Auth.auth().currentUser{
+                    user.delete()
+                }
+                
+            }
+        }
+    }
     
 }
